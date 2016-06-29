@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  professor_id: 
+  user_id: 
+  room_id: 
+  date_register: 2016-06-28
+  date_expiration: 2016-06-28
+
+two:
+  professor_id: 
+  user_id: 
+  room_id: 
+  date_register: 2016-06-28
+  date_expiration: 2016-06-28

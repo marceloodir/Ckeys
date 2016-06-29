@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Professor:</strong>
+  <%= @authorization.professor %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @authorization.user %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @authorization.room %>
+</p>
+
+<p>
+  <strong>Date register:</strong>
+  <%= @authorization.date_register %>
+</p>
+
+<p>
+  <strong>Date expiration:</strong>
+  <%= @authorization.date_expiration %>
+</p>
+
+<%= link_to 'Edit', edit_authorization_path(@authorization) %> |
+<%= link_to 'Back', authorizations_path %>
