@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 
+  room_id: 
+  input_register: 2016-06-28 23:40:27
+  output_register: 2016-06-28 23:40:27
+
+two:
+  user_id: 
+  room_id: 
+  input_register: 2016-06-28 23:40:27
+  output_register: 2016-06-28 23:40:27

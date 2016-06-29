@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629014312) do
+ActiveRecord::Schema.define(version: 20160629024027) do
 
   create_table "authorizations", force: :cascade do |t|
     t.integer  "professor_id"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 20160629014312) do
   add_index "authorizations", ["professor_id"], name: "index_authorizations_on_professor_id"
   add_index "authorizations", ["room_id"], name: "index_authorizations_on_room_id"
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id"
+
+  create_table "loans", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "room_id"
+    t.datetime "input_register"
+    t.datetime "output_register"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "loans", ["room_id"], name: "index_loans_on_room_id"
+  add_index "loans", ["user_id"], name: "index_loans_on_user_id"
 
   create_table "professors", force: :cascade do |t|
     t.string   "nome"

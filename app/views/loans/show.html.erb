@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @loan.user %>
+</p>
+
+<p>
+  <strong>Room:</strong>
+  <%= @loan.room %>
+</p>
+
+<p>
+  <strong>Input register:</strong>
+  <%= @loan.input_register %>
+</p>
+
+<p>
+  <strong>Output register:</strong>
+  <%= @loan.output_register %>
+</p>
+
+<%= link_to 'Edit', edit_loan_path(@loan) %> |
+<%= link_to 'Back', loans_path %>
