@@ -19,15 +19,7 @@
     <%= f.label :room_id %><br>
     <%= f.collection_select :room_id, Room.order(:title),:id,:title, include_blank: true %>
   </div>
-  <div class="field">
-    <%= f.label :input_register %><br>
-    <%= f.datetime_select :input_register %>
-  </div>
-  <div class="field">
-    <%= f.label :output_register %><br>
-    <%= f.datetime_select :output_register %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Registrar Entrada" %>
   </div>
 <% end %>

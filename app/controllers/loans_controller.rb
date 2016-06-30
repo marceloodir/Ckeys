@@ -1,5 +1,5 @@
 class LoansController < ApplicationController
-  before_action :set_loan, only: [:show, :edit, :update, :destroy]
+  before_action :set_loan, only: [:show, :edit, :update, :destroy, :devolver]
   before_action :permited_loan, only: [:create, :update]
 
   # GET /loans
@@ -26,6 +26,7 @@ class LoansController < ApplicationController
   # POST /loans.json
   def create
     @loan = Loan.new(loan_params)
+    @loan.input_register = DateTime.now
 
     respond_to do |format|
       if @loan.save
@@ -60,6 +61,12 @@ class LoansController < ApplicationController
       format.html { redirect_to loans_url, notice: 'Loan was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def devolver
+    @loan.output_register = DateTime.now
+    @loan.save
+    redirect_to loans_path
   end
 
   private

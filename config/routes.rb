@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :loans
+  match 'loans/:id', controller: 'loans', action: 'devolver', via: 'post'
   resources :authorizations
   resources :projects
   resources :professors
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'loans#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

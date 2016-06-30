@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
-      <th>Room</th>
-      <th>Input register</th>
-      <th>Output register</th>
+      <th>Usuário</th>
+      <th>Sala</th>
+      <th>Registro de Entrada</th>
+      <th>Registro de Saída</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,14 @@
   <tbody>
     <% @loans.each do |loan| %>
       <tr>
-        <td><%= loan.user %></td>
-        <td><%= loan.room %></td>
-        <td><%= loan.input_register %></td>
-        <td><%= loan.output_register %></td>
+        <td><%= loan.user.nome %></td>
+        <td><%= loan.room.title %></td>
+        <td><%= loan.input_register.strftime("%H:%M:%S %d/%m/%Y") %></td>
+        <td><%= if loan.output_register == nil
+                  button_to "Registrar Devolução", {:controller => :loans, :action => 'devolver', :id => loan.id }, :method => :post
+                else
+                  loan.output_register.strftime("%H:%M:%S %d/%m/%Y")
+                end %></td>
         <td><%= link_to 'Show', loan %></td>
         <td><%= link_to 'Edit', edit_loan_path(loan) %></td>
         <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
