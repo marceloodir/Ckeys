@@ -2,13 +2,17 @@
 <html>
 <head>
   <title>CKeys</title>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-
+<body >
+  <nav class="navbar navbar-default">
+    <a class="navbar-brand" href="#">CKeys</a>
+  </nav>
+  <div class="jumbotron">
+    <%= yield %>
+  </div>
 </body>
 </html>

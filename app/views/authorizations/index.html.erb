@@ -2,7 +2,7 @@
 
 <h1>Listing Authorizations</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Professor</th>
@@ -17,11 +17,11 @@
   <tbody>
     <% @authorizations.each do |authorization| %>
       <tr>
-        <td><%= authorization.professor %></td>
-        <td><%= authorization.user %></td>
-        <td><%= authorization.room %></td>
-        <td><%= authorization.date_register %></td>
-        <td><%= authorization.date_expiration %></td>
+        <td><%= authorization.professor.nome %></td>
+        <td><%= authorization.user.nome %></td>
+        <td><%= authorization.room.title %></td>
+        <td><%= authorization.date_register.strftime("%d/%m/%Y") %></td>
+        <td><%= authorization.date_expiration.strftime("%d/%m/%Y") %></td>
         <td><%= link_to 'Show', authorization %></td>
         <td><%= link_to 'Edit', edit_authorization_path(authorization) %></td>
         <td><%= link_to 'Destroy', authorization, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -33,3 +33,5 @@
 <br>
 
 <%= link_to 'New Authorization', new_authorization_path %>
+<br>
+<%= link_to 'Principal', loans_path %>
