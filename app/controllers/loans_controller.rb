@@ -30,7 +30,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to @loan, notice: 'Loan was successfully created.' }
+        format.html { redirect_to loans_path, notice: 'Loan was successfully created.' }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render :new }
@@ -82,8 +82,10 @@ class LoansController < ApplicationController
 
     def permited_loan
       loan = Loan.new(loan_params)
-      unless Authorization.exists?(user_id: loan.user_id, room_id: loan.room_id)
-        redirect_to  loans_path, notice: 'Usuário não tem permissão para acesso a esse laboratório'
+      if User.alunos.include? loan.user
+        unless Authorization.exists?(user_id: loan.user_id, room_id: loan.room_id)
+          redirect_to loans_path, notice: 'Usuário não tem permissão para acesso a esse laboratório'
+        end
       end
     end
 end

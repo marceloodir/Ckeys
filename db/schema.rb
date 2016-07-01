@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160629024027) do
+ActiveRecord::Schema.define(version: 20160701122416) do
 
   create_table "authorizations", force: :cascade do |t|
-    t.integer  "professor_id"
     t.integer  "user_id"
     t.integer  "room_id"
     t.date     "date_register"
     t.date     "date_expiration"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "authorizer_id"
   end
 
-  add_index "authorizations", ["professor_id"], name: "index_authorizations_on_professor_id"
+  add_index "authorizations", ["authorizer_id"], name: "index_authorizations_on_authorizer_id"
   add_index "authorizations", ["room_id"], name: "index_authorizations_on_room_id"
   add_index "authorizations", ["user_id"], name: "index_authorizations_on_user_id"
 
@@ -63,8 +63,9 @@ ActiveRecord::Schema.define(version: 20160629024027) do
   create_table "users", force: :cascade do |t|
     t.string   "nome"
     t.string   "matricula"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "servidor",   default: false
   end
 
 end

@@ -69,6 +69,6 @@ class AuthorizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def authorization_params
-      params.require(:authorization).permit(:professor_id, :user_id, :room_id, :date_register, :date_expiration)
+      params.require(:authorization).permit(:user_id, :authorizer_id, :room_id, :date_register, :date_expiration)
     end
 end

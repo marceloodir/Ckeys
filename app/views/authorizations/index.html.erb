@@ -17,7 +17,7 @@
   <tbody>
     <% @authorizations.each do |authorization| %>
       <tr>
-        <td><%= authorization.professor.nome %></td>
+        <td><%= authorization.authorizer.nome %></td>
         <td><%= authorization.user.nome %></td>
         <td><%= authorization.room.title %></td>
         <td><%= authorization.date_register.strftime("%d/%m/%Y") %></td>

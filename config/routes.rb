@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   resources :loans
   match 'loans/:id', controller: 'loans', action: 'devolver', via: 'post'
   resources :authorizations
-  resources :projects
-  resources :professors
   resources :rooms
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
