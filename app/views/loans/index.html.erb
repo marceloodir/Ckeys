@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Loans</h1>
+<h1>Empréstimos Ativos</h1>
 
 <table>
   <thead>
@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @loans.each do |loan| %>
+    <% @loans.ativos.each do |loan| %>
       <tr>
         <td><%= loan.user.nome %></td>
         <td><%= loan.room.title %></td>
@@ -31,7 +31,30 @@
     <% end %>
   </tbody>
 </table>
+  <br>
+  <%= link_to 'New Loan', new_loan_path %>
+  <br>
+ <h2>Histórico de Empréstimos</h2>
+ <table>
+   <thead>
+     <tr>
+       <th>Usuário</th>
+       <th>Sala</th>
+       <th>Registro de Entrada</th>
+       <th>Registro de Saída</th>
+     </tr>
+   </thead>
+
+   <tbody>
+     <% @loans.inativos.each do |loan| %>
+       <tr>
+         <td><%= loan.user.nome %></td>
+         <td><%= loan.room.title %></td>
+         <td><%= loan.input_register.strftime("%H:%M:%S %d/%m/%Y") %></td>
+         <td><%= loan.output_register.strftime("%H:%M:%S %d/%m/%Y") %></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
 
 <br>
-
-<%= link_to 'New Loan', new_loan_path %>

@@ -4,4 +4,6 @@ class Loan < ActiveRecord::Base
 
   validates_presence_of :user_id, :room_id, :input_register
 
+  scope :ativos, ->{ where('output_register IS NULL') }
+  scope :inativos, ->{ where('output_register IS NOT NULL') }
 end
