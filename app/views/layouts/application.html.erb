@@ -13,7 +13,7 @@
     <div id="matriculatop">
       <% if session[:user_id]
           user = User.find_by_id(session[:user_id])%>
-      <%= user.nome %>
+      <%= user.nome_matricula %>
     </div>
     <div id="logouttop">
       <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-default" %>
