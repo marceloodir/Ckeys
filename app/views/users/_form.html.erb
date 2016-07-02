@@ -20,14 +20,22 @@
     <%= f.text_field :matricula %>
   </div>
   <div class="field">
-    <%= f.label :servidor %><br>
-    <%= f.check_box :servidor %>
+    <%= f.label :password, 'Password' %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div>
+    <%= f.label :password_confirmation, 'Confirm' %><br>
+    <%= f.password_field :password_confirmation %>
   </div>
   <div class="field">
-    <%= f.label :admin %><br>
+    <%= f.check_box :servidor %>
+    <%= f.label :servidor %>
+  </div>
+  <div class="field">
     <%= f.check_box :admin %>
+    <%= f.label :admin %>
   </div>
   <div class="actions">
-    <%= f.submit "Novo Usuário" %>
+    <%= f.submit "Confirmar" %>
   </div>
 <% end %>

@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+  skip_before_filter :authorize, only: [:index]
   before_action :set_loan, only: [:show, :edit, :update, :destroy, :devolver]
   before_action :permited_loan, only: [:create, :update]
 

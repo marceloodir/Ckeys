@@ -9,7 +9,16 @@
 </head>
 <body >
   <nav class="navbar navbar-default">
-    <a class="navbar-brand" href="#">CKeys</a>
+    <a class="navbar-brand" href="<%= root_path %>">CKeys</a>
+    <div id="matriculatop">
+      <% if session[:user_id]
+          user = User.find_by_id(session[:user_id])%>
+      <%= user.nome %>
+    </div>
+    <div id="logouttop">
+      <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-default" %>
+      <% end %>
+    </div>
   </nav>
   <div class="jumbotron">
     <%= yield %>

@@ -20,3 +20,19 @@
   margin-left: auto;
   margin-right: auto;
 }
+
+#logouttop {
+  width: 100px;
+  height: 50px;
+  right: 10px;
+  padding-top: 6px;
+  text-align: center;
+  position: absolute;
+}
+
+#matriculatop {
+  position: absolute;
+  padding-top: 12px;
+  height: 50px;
+  right: 120px;
+}

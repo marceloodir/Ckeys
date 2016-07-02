@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :authorizations, :dependent => :restrict_with_exception
   has_many :loans, :dependent => :restrict_with_exception
-  
+
   validates_presence_of :nome, :matricula
   validates_uniqueness_of :matricula
 
