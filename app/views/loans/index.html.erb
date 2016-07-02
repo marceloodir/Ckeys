@@ -8,8 +8,8 @@
       <th>Usuário</th>
       <th>Sala</th>
       <th>Registro de Entrada</th>
-      <th>Registro de Saída</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -24,9 +24,8 @@
                 else
                   loan.output_register.strftime("%H:%M:%S %d/%m/%Y")
                 end %></td>
-        <td><%= link_to 'Show', loan, class: "btn btn-default" %></td>
-        <td><%= link_to 'Edit', edit_loan_path(loan), class: "btn btn-default" %></td>
-        <td><%= link_to 'Destroy', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+        <td><%= link_to 'Editar', edit_loan_path(loan), class: "btn btn-default" %></td>
+        <td><%= link_to 'Apagar', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
