@@ -17,6 +17,10 @@
         <div id="logouttop">
           <%= button_to 'Logout', logout_path, method: :delete, class: "btn btn-default" %>
         </div>
+    <% else %>
+        <div id="logouttop">
+          <%= button_to 'Login', login_path, method: :get, class: "btn btn-primary btn-block" %>
+        </div>
     <% end %>
   </nav>
   <div class="tudo">

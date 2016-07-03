@@ -19,21 +19,28 @@
         <td><%= loan.user.nome %></td>
         <td><%= loan.room.title %></td>
         <td><%= loan.input_register.strftime("%H:%M:%S %d/%m/%Y") %></td>
-        <td><%= if loan.output_register == nil
-                  button_to "Registrar Devolução", {:controller => :loans, :action => 'devolver', :id => loan.id }, :method => :post, class: "btn btn-danger"
-                else
-                  loan.output_register.strftime("%H:%M:%S %d/%m/%Y")
-                end %></td>
-        <td><%= link_to 'Editar', edit_loan_path(loan), class: "btn btn-sm btn-default" %></td>
-        <td><%= link_to 'Apagar', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></td>
-      </tr>
+        <% if @user_logado and @user_logado.admin %>
+            <td><%= if loan.output_register == nil
+                      button_to "Registrar Devolução",
+                      {:controller => :loans, :action => 'devolver', :id => loan.id },
+                      :method => :post,
+                      class: "btn btn-danger"
+                    end %></td>
+            <td><%= link_to 'Editar', edit_loan_path(loan), class: "btn btn-sm btn-default" %></td>
+            <td><%= link_to 'Apagar', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></td>
+      <% else %>
+            <td></td>
+            <td></td>
+            <td></td>
+      <% end %>
     <% end %>
+    </tr>
   </tbody>
 </table>
   <br>
+  <% if @user_logado and (@user_logado.admin or @user_logado.servidor) %>
   <%= link_to 'Novo Empréstimo', new_loan_path, class: "btn btn-success" %>
   <br><br>
-  <% if @user_logado and (@user_logado.admin or @user_logado.servidor) %>
   <%= link_to 'Permissões', authorizations_path, class: "btn btn-default" %>
   <%= link_to 'Usuários',  users_path, class: "btn btn-default"  %>
   <%= link_to 'Salas', rooms_path, class: "btn btn-default" %>
