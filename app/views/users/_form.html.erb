@@ -27,6 +27,7 @@
     <%= f.label :password_confirmation, 'Confirmar Password' %><br>
     <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
+  <% if @user_logado.admin %>
   <div class="form-group">
     <%= f.check_box :servidor %>
     <%= f.label :Servidor %>
@@ -35,6 +36,7 @@
     <%= f.check_box :admin %>
     <%= f.label :Administrador %>
   </div>
+  <% end %>
   <div class="form-group">
     <%= f.submit "Confirmar", class: "btn btn-default btnlogin" %>
   </div>

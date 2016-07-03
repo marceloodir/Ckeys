@@ -1,5 +1,6 @@
 class RoomsController < ApplicationController
   skip_before_filter :authorize, only: [:index]
+  before_action :usuario_comum
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   # GET /rooms
@@ -76,4 +77,5 @@ class RoomsController < ApplicationController
     def room_params
       params.require(:room).permit(:title, :location)
     end
+
 end

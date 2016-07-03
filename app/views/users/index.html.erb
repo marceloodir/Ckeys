@@ -20,8 +20,13 @@
         <td><%= user.matricula %></td>
         <td><%= user.servidor ? 'Sim' : 'Não' %></td>
         <td><%= user.admin ? 'Sim' : 'Não' %></td>
-        <td><%= link_to 'Editar', edit_user_path(user), class: "btn btn-sm btn-default" %></td>
-        <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-sm btn-default" %></td>
+        <% if user == @user_logado or @user_logado.admin %>
+            <td><%= link_to 'Editar', edit_user_path(user), class: "btn btn-sm btn-default" %></td>
+            <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-sm btn-default" %></td>
+        <% else %>
+            <td></td>
+            <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

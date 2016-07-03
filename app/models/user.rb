@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   def nome_matricula
     "#{nome} - (#{matricula})"
   end
+  
 end

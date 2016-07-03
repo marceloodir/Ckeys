@@ -1,5 +1,6 @@
 class AuthorizationsController < ApplicationController
   skip_before_filter :authorize, only: [:index]
+  before_action :usuario_comum
   before_action :set_authorization, only: [:show, :edit, :update, :destroy]
 
   # GET /authorizations

@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :usuario_not_operador, :only => [:destroy]
+  before_action :proprio_usuario, :only => [:update, :edit]
+  before_action :usuario_comum
+
 
   # GET /users
   # GET /users.json
@@ -77,5 +81,11 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:nome, :matricula, :servidor, :admin, :password, :password_confirmation)
+    end
+
+    def proprio_usuario
+      if @user != @user_logado and not @user_logado.admin
+        redirect_to users_url, notice: 'Você não permissão para isso.'
+      end
     end
 end

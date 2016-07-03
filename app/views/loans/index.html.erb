@@ -33,9 +33,11 @@
   <br>
   <%= link_to 'Novo Empréstimo', new_loan_path, class: "btn btn-success" %>
   <br><br>
+  <% if @user_logado.admin or @user_logado.servidor %>
   <%= link_to 'Permissões', authorizations_path, class: "btn btn-default" %>
   <%= link_to 'Usuários',  users_path, class: "btn btn-default"  %>
   <%= link_to 'Salas', rooms_path, class: "btn btn-default" %>
+  <% end %>
   <br>
  <h2>Histórico de Empréstimos</h2>
  <table class="table table-striped">
@@ -49,7 +51,7 @@
    </thead>
 
    <tbody>
-     <% @loans.inativos.each do |loan| %>
+     <% @loans.inativos.last(35).reverse.each do |loan| %>
        <tr>
          <td><%= loan.user.nome %></td>
          <td><%= loan.room.title %></td>
