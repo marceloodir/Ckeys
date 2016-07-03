@@ -33,7 +33,7 @@
   <br>
   <%= link_to 'Novo Empréstimo', new_loan_path, class: "btn btn-success" %>
   <br><br>
-  <% if @user_logado.admin or @user_logado.servidor %>
+  <% if @user_logado and (@user_logado.admin or @user_logado.servidor) %>
   <%= link_to 'Permissões', authorizations_path, class: "btn btn-default" %>
   <%= link_to 'Usuários',  users_path, class: "btn btn-default"  %>
   <%= link_to 'Salas', rooms_path, class: "btn btn-default" %>
