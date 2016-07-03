@@ -26,10 +26,11 @@ class AuthorizationsController < ApplicationController
   # POST /authorizations.json
   def create
     @authorization = Authorization.new(authorization_params)
+    @authorization.date_register = Date.today
 
     respond_to do |format|
       if @authorization.save
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully created.' }
+        format.html { redirect_to authorizations_path, notice: 'Autorização criada.' }
         format.json { render :show, status: :created, location: @authorization }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class AuthorizationsController < ApplicationController
   def update
     respond_to do |format|
       if @authorization.update(authorization_params)
-        format.html { redirect_to @authorization, notice: 'Authorization was successfully updated.' }
+        format.html { redirect_to authorizations_path, notice: 'Autorização editada.' }
         format.json { render :show, status: :ok, location: @authorization }
       else
         format.html { render :edit }
@@ -57,7 +58,7 @@ class AuthorizationsController < ApplicationController
   def destroy
     @authorization.destroy
     respond_to do |format|
-      format.html { redirect_to authorizations_url, notice: 'Authorization was successfully destroyed.' }
+      format.html { redirect_to authorizations_url, notice: 'Autorização apagada.' }
       format.json { head :no_content }
     end
   end

@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :authorizer_id %><br>
-    <%= f.collection_select :authorizer_id, User.servidores.order(:nome),:id,:nome_matricula, include_blank: true %>
+  <div class="form-group">
+    <%= f.label :Autorizador %><br>
+    <%= f.collection_select :authorizer_id, User.servidores.order(:nome),:id,:nome_matricula, {include_blank: true}, {class: "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.collection_select :user_id, User.alunos.order(:nome),:id,:nome_matricula, include_blank: true %>
+  <div class="form-group">
+    <%= f.label :Aluno %><br>
+    <%= f.collection_select :user_id, User.alunos.order(:nome),:id,:nome_matricula, {include_blank: true}, {class: "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :room_id %><br>
-    <%= f.collection_select :room_id, Room.order(:title),:id,:title, include_blank: true %>
+  <div class="form-group">
+    <%= f.label :Sala %><br>
+    <%= f.collection_select :room_id, Room.order(:title),:id,:title, {include_blank: true}, {class: "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :date_register %><br>
-    <%= f.date_select :date_register %>
+  <div class="form-group">
+    <%= f.label 'Vencimento' %><br>
+    <%= f.date_select :date_expiration,
+        :order => [:day, :month, :year],
+        :start_year => Date.today.year,
+        :end_year => Date.today.year + 1,
+        :html=>{:class => "form-control"}%>
   </div>
-  <div class="field">
-    <%= f.label :date_expiration %><br>
-    <%= f.date_select :date_expiration %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.submit 'Confirmar', class: "btn btn-default btnlogin" %>
   </div>
 <% end %>

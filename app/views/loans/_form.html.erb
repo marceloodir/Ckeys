@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.collection_select :user_id, User.order(:nome),:id,:nome_matricula, include_blank: true %>
+  <div class="form-group">
+    <%= f.label :Usuário %><br>
+    <%= f.collection_select :user_id, User.order(:nome),:id,:nome_matricula, {include_blank: true}, {class: "form-control"} %>
   </div>
-  <div class="field">
-    <%= f.label :room_id %><br>
-    <%= f.collection_select :room_id, Room.order(:title),:id,:title, include_blank: true %>
+  <div class="form-group">
+    <%= f.label :Sala %><br>
+    <%= f.collection_select :room_id, Room.order(:title),:id,:title, {include_blank: true}, {class: "form-control"} %>
   </div>
-  <div class="actions">
-    <%= f.submit "Registrar Entrada" %>
+  <div class="form-group">
+    <%= f.submit "Registrar", class: "btn btn-default btnlogin" %>
   </div>
 <% end %>

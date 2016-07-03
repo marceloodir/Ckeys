@@ -11,31 +11,31 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
+    <%= f.text_field :nome, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :matricula %><br>
-    <%= f.text_field :matricula %>
+    <%= f.text_field :matricula, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :password, 'Password' %><br>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, class: "form-control" %>
   </div>
-  <div>
-    <%= f.label :password_confirmation, 'Confirm' %><br>
-    <%= f.password_field :password_confirmation %>
+  <div class="form-group">
+    <%= f.label :password_confirmation, 'Confirmar Password' %><br>
+    <%= f.password_field :password_confirmation, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.check_box :servidor %>
-    <%= f.label :servidor %>
+    <%= f.label :Servidor %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.check_box :admin %>
-    <%= f.label :admin %>
+    <%= f.label :Administrador %>
   </div>
-  <div class="actions">
-    <%= f.submit "Confirmar" %>
+  <div class="form-group">
+    <%= f.submit "Confirmar", class: "btn btn-default btnlogin" %>
   </div>
 <% end %>

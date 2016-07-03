@@ -31,7 +31,7 @@ class LoansController < ApplicationController
 
     respond_to do |format|
       if @loan.save
-        format.html { redirect_to loans_path, notice: 'Loan was successfully created.' }
+        format.html { redirect_to loans_path, notice: 'Empréstimo cadastrado.' }
         format.json { render :show, status: :created, location: @loan }
       else
         format.html { render :new }
@@ -45,7 +45,7 @@ class LoansController < ApplicationController
   def update
     respond_to do |format|
       if @loan.update(loan_params)
-        format.html { redirect_to @loan, notice: 'Loan was successfully updated.' }
+        format.html { redirect_to loans_path, notice: 'Empréstimo editado.' }
         format.json { render :show, status: :ok, location: @loan }
       else
         format.html { render :edit }
@@ -59,7 +59,7 @@ class LoansController < ApplicationController
   def destroy
     @loan.destroy
     respond_to do |format|
-      format.html { redirect_to loans_url, notice: 'Loan was successfully destroyed.' }
+      format.html { redirect_to loans_url, notice: 'Empréstimo apagado.' }
       format.json { head :no_content }
     end
   end

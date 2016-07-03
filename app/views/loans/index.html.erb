@@ -24,8 +24,8 @@
                 else
                   loan.output_register.strftime("%H:%M:%S %d/%m/%Y")
                 end %></td>
-        <td><%= link_to 'Editar', edit_loan_path(loan), class: "btn btn-default" %></td>
-        <td><%= link_to 'Apagar', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %></td>
+        <td><%= link_to 'Editar', edit_loan_path(loan), class: "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Apagar', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1>Usuários Ativos</h1>
 
 <table class="table table-striped">
   <thead>
@@ -9,7 +9,7 @@
       <th>Matricula</th>
       <th>Servidor</th>
       <th>Administrador</th>
-      <th colspan="3"></th>
+      <th colspan="2"></th>
     </tr>
   </thead>
 
@@ -18,17 +18,16 @@
       <tr>
         <td><%= user.nome %></td>
         <td><%= user.matricula %></td>
-        <td><%= user.servidor %></td>
-        <td><%= user.admin %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= user.servidor ? 'Sim' : 'Não' %></td>
+        <td><%= user.admin ? 'Sim' : 'Não' %></td>
+        <td><%= link_to 'Editar', edit_user_path(user), class: "btn btn-sm btn-default" %></td>
+        <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-sm btn-default" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'New User', new_user_path %>
-<br>
-<%= link_to 'Principal', loans_path %>
+<%= link_to 'Novo Usuário', new_user_path %>
+<br><br>
+<%= link_to 'Menu Principal', loans_path %>
