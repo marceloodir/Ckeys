@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.administradores.find_by_matricula(params[:matricula])
+    user = User.find_by_matricula(params[:matricula])
     if user and user.authenticate(params[:password])
       session[:user_id] = user.id
       redirect_to root_path
