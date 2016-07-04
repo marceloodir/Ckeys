@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    <% @rooms.each do |room| %>
+    <% @rooms.order(title: :asc).each do |room| %>
       <tr>
         <td><%= room.title %></td>
         <td><%= room.location %></td>

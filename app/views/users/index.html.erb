@@ -14,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @users.each do |user| %>
+    <% @users.order(nome: :asc).each do |user| %>
       <tr>
         <td><%= user.nome %></td>
         <td><%= user.matricula %></td>
