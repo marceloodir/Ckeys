@@ -11,10 +11,21 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= f.label :Autorizador %><br>
-    <%= f.collection_select :authorizer_id, User.servidores.order(:nome),:id,:nome_matricula, {include_blank: true}, {class: "form-control"} %>
-  </div>
+  <% if @user_logado.admin %>
+    <div class="form-group">
+      <%= f.label :Autorizador %><br>
+      <%= f.collection_select :authorizer_id, User.servidores.order(:nome),:id,:nome_matricula, {include_blank: true}, {class: "form-control"} %>
+    </div>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :Autorizador %><br>
+      <%= f.collection_select :authorizer_id,
+          User.servidores.order(:nome),:id,:nome_matricula,
+          {selected: @user_logado.id},
+          {class: "form-control", :disabled => "disabled"} %>
+      <%= f.hidden_field :authorizer_id, :value => @user_logado.id %>
+    </div>
+  <% end %>
   <div class="form-group">
     <%= f.label :Aluno %><br>
     <%= f.collection_select :user_id, User.alunos.order(:nome),:id,:nome_matricula, {include_blank: true}, {class: "form-control"} %>

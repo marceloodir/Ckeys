@@ -22,8 +22,13 @@
         <td><%= authorization.room.title %></td>
         <td><%= authorization.date_register.strftime("%d/%m/%Y") %></td>
         <td><%= authorization.date_expiration.strftime("%d/%m/%Y") %></td>
+        <% if authorization.authorizer == @user_logado or @user_logado.admin %>
         <td><%= link_to 'Editar', edit_authorization_path(authorization), class: "btn btn-sm btn-default" %></td>
         <td><%= link_to 'Apagar', authorization, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-sm btn-default" %></td>
+        <% else %>
+          <td><td>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
