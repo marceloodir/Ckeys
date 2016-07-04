@@ -19,7 +19,7 @@
         <td><%= loan.user.nome %></td>
         <td><%= loan.room.title %></td>
         <td><%= loan.input_register.strftime("%H:%M:%S %d/%m/%Y") %></td>
-        <% if @user_logado and @user_logado.admin %>
+        <% if @user_logado and (@user_logado.admin or @user_logado.servidor) %>
             <td><%= if loan.output_register == nil
                       button_to "Registrar Devolução",
                       {:controller => :loans, :action => 'devolver', :id => loan.id },
