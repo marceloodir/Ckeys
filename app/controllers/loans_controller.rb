@@ -83,8 +83,8 @@ class LoansController < ApplicationController
 
     def permited_loan
       loan = Loan.new(loan_params)
-      if User.alunos.include? loan.user
-        unless Authorization.exists?(user_id: loan.user_id, room_id: loan.room_id)
+      if User.alunos.include? loan.user #verifica se tem autorização somente para alunos
+        unless Authorization.ativos.exists?(user_id: loan.user_id, room_id: loan.room_id)
           redirect_to loans_path, notice: 'Usuário não tem permissão para acesso a esse laboratório'
         end
       end

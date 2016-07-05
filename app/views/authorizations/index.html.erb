@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listando Autorizações</h1>
+<h1>Listando Permissões Ativas</h1>
 
 <table class="table table-striped">
   <thead>
@@ -15,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @authorizations.each do |authorization| %>
+    <% @authorizations.ativos.each do |authorization| %>
       <tr>
         <td><%= authorization.authorizer.nome %></td>
         <td><%= authorization.user.nome %></td>
@@ -34,8 +34,31 @@
   </tbody>
 </table>
 
-<br>
+<h3>Listando Permissões expiradas</h3>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Professor</th>
+      <th>Aluno</th>
+      <th>Sala</th>
+      <th>Data do Registro</th>
+      <th>Vencimento</th>
+    </tr>
+  </thead>
 
-<%= link_to 'Nova Autorização', new_authorization_path %>
+  <tbody>
+    <% @authorizations.expirados.last(35).each do |authorization| %>
+      <tr>
+        <td><%= authorization.authorizer.nome %></td>
+        <td><%= authorization.user.nome %></td>
+        <td><%= authorization.room.title %></td>
+        <td><%= authorization.date_register.strftime("%d/%m/%Y") %></td>
+        <td><%= authorization.date_expiration.strftime("%d/%m/%Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= link_to 'Nova Permissão', new_authorization_path, class: "btn btn-sm btn-success" %>
 <br><br>
-<%= link_to 'Menu Principal', loans_path %>
+<%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>
