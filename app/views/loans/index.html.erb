@@ -1,4 +1,3 @@
-<p id="notice" ><%= notice %></p>
 
 <h1>Empréstimos Ativos</h1>
 
@@ -9,7 +8,11 @@
       <th>Sala</th>
       <th>Registro de Entrada</th>
       <th></th>
-      <th colspan="2"></th>
+      <th colspan="2" id="btn_novo">
+        <% if @user_logado and (@user_logado.admin or @user_logado.servidor) %>
+        <%= link_to 'Novo Empréstimo', new_loan_path, class: "btn btn-success" %>
+        <% end %>
+      </th>
     </tr>
   </thead>
 
@@ -26,8 +29,8 @@
                       :method => :post,
                       class: "btn btn-danger"
                     end %></td>
-            <td><%= link_to 'Editar', edit_loan_path(loan), class: "btn btn-sm btn-default" %></td>
-            <td><%= link_to 'Apagar', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></td>
+            <td id="coluna_novo"><%= link_to 'Editar', edit_loan_path(loan), class: "btn btn-sm btn-default" %></td>
+            <td id="coluna_novo"><%= link_to 'Apagar', loan, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-default" %></td>
       <% else %>
             <td></td>
             <td></td>
@@ -38,13 +41,7 @@
   </tbody>
 </table>
   <br>
-  <% if @user_logado and (@user_logado.admin or @user_logado.servidor) %>
-  <%= link_to 'Novo Empréstimo', new_loan_path, class: "btn btn-success" %>
-  <br><br>
-  <%= link_to 'Permissões', authorizations_path, class: "btn btn-default" %>
-  <%= link_to 'Usuários',  users_path, class: "btn btn-default"  %>
-  <%= link_to 'Salas', rooms_path, class: "btn btn-default" %>
-  <% end %>
+
   <br>
  <h2>Histórico de Empréstimos</h2>
  <table class="table table-striped">

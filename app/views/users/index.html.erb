@@ -1,10 +1,4 @@
 
-
-<div class="btn-controle">
-  <%= link_to 'Novo Usuário', new_user_path, class: "btn btn-sm btn-success" %>
-  <%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>
-</div>
-
 <h1>Usuários Ativos</h1>
 
 <table class="table table-striped">
@@ -14,7 +8,7 @@
       <th>Matricula</th>
       <th>Servidor</th>
       <th>Administrador</th>
-      <th colspan="2"></th>
+      <th colspan="2" id="btn_novo"><%= link_to 'Novo Usuário', new_user_path, class: "btn btn-block btn-success" %></th>
     </tr>
   </thead>
 
@@ -26,11 +20,11 @@
         <td><%= user.servidor ? 'Sim' : 'Não' %></td>
         <td><%= user.admin ? 'Sim' : 'Não' %></td>
         <% if user == @user_logado or @user_logado.admin %>
-            <td><%= link_to 'Editar', edit_user_path(user), class: "btn btn-sm btn-default" %></td>
-            <td><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-sm btn-default" %></td>
+            <td id="coluna_novo"><%= link_to 'Editar', edit_user_path(user), class: "btn btn-sm btn-default" %></td>
+            <td id="coluna_novo"><%= link_to 'Apagar', user, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-sm btn-default" %></td>
         <% else %>
-            <td></td>
-            <td></td>
+            <td id="coluna_novo"></td>
+            <td id="coluna_novo"></td>
         <% end %>
       </tr>
     <% end %>

@@ -13,6 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+#btn_novo {
+  text-align: center;
+  width: 100px;
+}
+
+#coluna_novo {
+  width: 50px;
+}
+
 .tudo {
   width: 800px;
   padding: 10px;
@@ -68,6 +78,8 @@
   padding-right: 15px;
 }
 
-.btn-controle {
-  text-align: right;
+#flash {
+  height: 52px;
+  font-size: 20px;
+  font-weight: bolder;
 }

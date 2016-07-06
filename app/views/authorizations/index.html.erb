@@ -1,7 +1,3 @@
-<div class="btn-controle">
-  <%= link_to 'Nova Permissão', new_authorization_path, class: "btn btn-sm btn-success" %>
-  <%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>
-</div>
 
 <h1>Listando Permissões Ativas</h1>
 
@@ -13,7 +9,7 @@
       <th>Sala</th>
       <th>Data do Registro</th>
       <th>Vencimento</th>
-      <th colspan="2"></th>
+      <th colspan="2" id="btn_novo"><%= link_to 'Nova Permissão', new_authorization_path, class: "btn btn-block btn-success" %></th>
     </tr>
   </thead>
 
@@ -26,11 +22,11 @@
         <td><%= authorization.date_register.strftime("%d/%m/%Y") %></td>
         <td><%= authorization.date_expiration.strftime("%d/%m/%Y") %></td>
         <% if authorization.authorizer == @user_logado or @user_logado.admin %>
-        <td><%= link_to 'Editar', edit_authorization_path(authorization), class: "btn btn-sm btn-default" %></td>
-        <td><%= link_to 'Apagar', authorization, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-sm btn-default" %></td>
+        <td id="coluna_novo"><%= link_to 'Editar', edit_authorization_path(authorization), class: "btn btn-sm btn-default" %></td>
+        <td id="coluna_novo"><%= link_to 'Apagar', authorization, method: :delete, data: { confirm: 'Você tem certeza?' }, class: "btn btn-sm btn-default" %></td>
         <% else %>
-          <td><td>
-          <td></td>
+          <td id="coluna_novo"><td>
+          <td id="coluna_novo"></td>
         <% end %>
       </tr>
     <% end %>
