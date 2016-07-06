@@ -40,10 +40,10 @@
     </tr>
   </tbody>
 </table>
-  <br>
+  <br><br>
 
-  <br>
  <h2>Histórico de Empréstimos</h2>
+<%= will_paginate @loans_inativos %>
  <table class="table table-striped">
    <thead>
      <tr>
@@ -55,7 +55,7 @@
    </thead>
 
    <tbody>
-     <% @loans.inativos.last(35).reverse.each do |loan| %>
+     <% @loans_inativos.each do |loan| %>
        <tr>
          <td><%= loan.user.nome %></td>
          <td><%= loan.room.title %></td>
@@ -65,5 +65,4 @@
      <% end %>
    </tbody>
  </table>
-
-<br>
+<%= will_paginate @loans_inativos %>
