@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+
+
+<div class="btn-controle">
+  <%= link_to 'Novo Usuário', new_user_path, class: "btn btn-sm btn-success" %>
+  <%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>
+</div>
 
 <h1>Usuários Ativos</h1>
 
@@ -31,8 +36,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-<%= link_to 'Novo Usuário', new_user_path, class: "btn btn-sm btn-success" %>
-<br><br>
-<%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>

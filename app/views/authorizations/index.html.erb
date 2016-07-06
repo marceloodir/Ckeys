@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="btn-controle">
+  <%= link_to 'Nova Permissão', new_authorization_path, class: "btn btn-sm btn-success" %>
+  <%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>
+</div>
 
 <h1>Listando Permissões Ativas</h1>
 
@@ -58,7 +61,3 @@
     <% end %>
   </tbody>
 </table>
-<br>
-<%= link_to 'Nova Permissão', new_authorization_path, class: "btn btn-sm btn-success" %>
-<br><br>
-<%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>

@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<div class="btn-controle">
+  <%= link_to 'Nova Sala', new_room_path, class: "btn btn-sm btn-success" %>
+  <%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>
+</div>
 
 <h1>Listando Salas</h1>
 
@@ -22,9 +25,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'Nova Sala', new_room_path, class: "btn btn-sm btn-success" %>
-<br><br>
-<%= link_to 'Menu Principal', loans_path, class: "btn btn-sm btn-default" %>
