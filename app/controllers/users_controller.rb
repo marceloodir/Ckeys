@@ -30,8 +30,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.password == nil and not @user.admin
-      @user.password = 'w5eDtYwg1pxg'
-      @user.password_confirmation = 'w5eDtYwg1pxg'
+      random_pass = SecureRandom.base64(15)
+      @user.password = random_pass
+      @user.password_confirmation = random_pass
     end
     respond_to do |format|
       if @user.save
