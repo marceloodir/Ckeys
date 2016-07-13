@@ -15,7 +15,7 @@
       </div>
       <% if @user_logado and (@user_logado.admin or @user_logado.servidor) %>
         <ul class="nav navbar-nav">
-          <li><a href="<%= root_path %>">Principal</a></li>
+          <li><a href="<%= root_path %>">Empréstimos</a></li>
           <li><a href="<%= authorizations_path %>">Permissões</a></li>
           <li><a href="<%= users_path %>">Usuários</a></li>
           <li><a href="<%= rooms_path %>">Salas</a></li>
