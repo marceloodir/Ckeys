@@ -7,7 +7,7 @@ class LoansController < ApplicationController
   # GET /loans.json
   def index
     @loans = Loan.all
-    @loans_inativos = Loan.inativos.paginate(page: params[:page], per_page: 15)
+    @loans_inativos = Loan.inativos.paginate(page: params[:page], per_page: 15, :total_entries => 150)
   end
 
   # GET /loans/1
